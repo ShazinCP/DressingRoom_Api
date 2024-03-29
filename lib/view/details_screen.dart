@@ -6,7 +6,8 @@ class DetailsScreen extends StatelessWidget {
   final String description;
   final String category;
   final String image;
-  final String rating;
+  final String ratingRate;
+  final String ratingCount;
 
   const DetailsScreen({
     super.key,
@@ -15,7 +16,8 @@ class DetailsScreen extends StatelessWidget {
     required this.price,
     required this.category,
     required this.image,
-    required this.rating,
+    required this.ratingRate,
+    required this.ratingCount,
   });
 
   @override
@@ -45,41 +47,109 @@ class DetailsScreen extends StatelessWidget {
               const SizedBox(height: 20),
               Row(
                 children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Text(
+                      name,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.visible,
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 1),
               Row(
                 children: [
-                  Text(category,
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800])),
+                  Text(
+                    category,
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[800],
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 5),
               Row(
                 children: [
-                  Text("₹ $price",
-                      style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold)),
+                  Text(
+                    "₹ $price",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 30),
-              Text(description,
-                  style: TextStyle(
-                      fontSize: 12,
+              Text(
+                description,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[700],
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Rating :",
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey[700])),
-              const SizedBox(height: 50),
-              Text(rating,
-                  style: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.bold)),
+                      fontSize: 17,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                       const Text(
+                        "Rate:  ",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        ratingRate,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700]
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                       const Text(
+                        "Count:  ",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        ratingCount,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700]
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ),

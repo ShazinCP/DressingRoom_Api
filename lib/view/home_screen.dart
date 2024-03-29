@@ -39,7 +39,9 @@ class HomeScreen extends StatelessWidget {
                               price: data.price.toString(),
                               category: data.category,
                               image: data.image,
-                              rating: data.rating.toString()),
+                              ratingRate: data.rating.rate.toString(),
+                              ratingCount: data.rating.count.toString(),
+                              ),
                         )),
                         child: ListTile(
                           leading: Container(
